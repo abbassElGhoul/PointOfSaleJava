@@ -1,4 +1,4 @@
-package com.aub.pointOfSale.product;
+package com.aub.pointOfSale.product.DTOs;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

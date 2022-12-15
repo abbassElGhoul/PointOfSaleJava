@@ -1,5 +1,7 @@
 package com.aub.pointOfSale.product;
 
+import com.aub.pointOfSale.product.DTOs.DecrementProductDto;
+import com.aub.pointOfSale.product.DTOs.ProductDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -28,6 +30,21 @@ public class ProductController
 		}
 	}
 
+	@GetMapping("get-product-by-id")
+	private ResponseEntity<?> getProductById(@RequestParam Long id)
+	{
+		try
+		{
+			return productService.getProductById(id);
+		}
+		catch(Exception e)
+		{
+			return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+
+		}
+
+	}
+
 	@PostMapping("add-product")
 	private ResponseEntity<?> addProduct(@RequestBody ProductDto productDto)
 	{
@@ -47,7 +64,7 @@ public class ProductController
 	{
 		try
 		{
-			return new ResponseEntity<>(productService.updateProduct(productDto, id), HttpStatus.OK);
+			return productService.updateProduct(productDto, id);
 		}
 		catch(Exception e)
 		{
@@ -56,4 +73,29 @@ public class ProductController
 		}
 	}
 
+	@DeleteMapping("delete-product")
+	private ResponseEntity<?> deleteProduct(@RequestParam Long id)
+	{
+		try
+		{
+			return productService.deleteProduct(id);
+		}
+		catch(Exception e)
+		{
+			return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+
+	@PostMapping("decrement-product")
+	private ResponseEntity<?> decrementProduct(@RequestBody DecrementProductDto decrementProductDto)
+	{
+		try
+		{
+			return productService.decrementProduct(decrementProductDto);
+		}
+		catch(Exception e)
+		{
+			throw new RuntimeException(e);
+		}
+	}
 }

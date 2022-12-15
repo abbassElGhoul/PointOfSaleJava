@@ -1,5 +1,6 @@
 package com.aub.pointOfSale.product;
 
+import com.aub.pointOfSale.product.DTOs.ProductDto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
