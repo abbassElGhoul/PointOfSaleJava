@@ -28,4 +28,10 @@ public class InvoiceProduct {
 	@Column(name = "quantity")
 	private Integer quantity;
 
+	public InvoiceProduct(ProductEntity product, InvoiceEntity invoice, Integer quantity)
+	{
+		this.product = product;
+		this.invoice = invoice;
+		this.quantity = quantity;
+	}
 }

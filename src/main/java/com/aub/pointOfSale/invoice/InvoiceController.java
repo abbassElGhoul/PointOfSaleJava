@@ -16,7 +16,6 @@ public class InvoiceController
 	@PostMapping("generate-receipt")
 	private ResponseEntity<?> generateReceipt(@RequestBody GenerateReceiptDTO generateReceiptDTO)
 	{
-		invoiceService.generateReceipt(generateReceiptDTO);
-		return new ResponseEntity<>("success", HttpStatus.ACCEPTED);
+		return  invoiceService.returnInvoice(generateReceiptDTO);
 	}
 }
