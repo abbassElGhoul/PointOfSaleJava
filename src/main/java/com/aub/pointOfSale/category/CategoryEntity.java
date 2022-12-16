@@ -1,5 +1,6 @@
 package com.aub.pointOfSale.category;
 
+import com.aub.pointOfSale.category.DTOs.CategoryDto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
@@ -21,4 +22,9 @@ public class CategoryEntity
 
 	@Column(name = "description")
 	private String description;
+
+	public CategoryEntity(CategoryDto categoryDto){
+		this.name = categoryDto.getName();
+		this.description = categoryDto.getDescription();
+	}
 }
