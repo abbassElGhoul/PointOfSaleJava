@@ -6,8 +6,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 @CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("api/category")
@@ -31,40 +29,55 @@ public class CategoryController
 	}
 
 	@GetMapping("get-category-by-id")
-	private ResponseEntity<?> getCategoryById(@RequestParam Long id){
-		try{
+	private ResponseEntity<?> getCategoryById(@RequestParam Long id)
+	{
+		try
+		{
 			return new ResponseEntity<>(categoryService.getCategoryById(id), HttpStatus.OK);
-		} catch (Exception e) {
+		}
+		catch(Exception e)
+		{
 			return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
 
 	@PostMapping("add-category")
-	private ResponseEntity<?> addCategory(@RequestBody CategoryDto categoryDto){
-		try{
+	private ResponseEntity<?> addCategory(@RequestBody CategoryDto categoryDto)
+	{
+		try
+		{
 			return categoryService.addCategory(categoryDto);
-		} catch (Exception e) {
+		}
+		catch(Exception e)
+		{
 			return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
 
 	@PutMapping("update-category")
-	private ResponseEntity<?> updateCategory(@RequestBody CategoryDto categoryDto, @RequestParam Long id){
-		try{
+	private ResponseEntity<?> updateCategory(@RequestBody CategoryDto categoryDto, @RequestParam Long id)
+	{
+		try
+		{
 			return categoryService.updateCategory(categoryDto, id);
-		} catch (Exception e) {
+		}
+		catch(Exception e)
+		{
 			return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
 
-	@PostMapping("delete-category")
-	private ResponseEntity<?> deleteCategory(@RequestParam Long id){
-		try{
+	@DeleteMapping("delete-category")
+	private ResponseEntity<?> deleteCategory(@RequestParam Long id)
+	{
+		try
+		{
 			return categoryService.deleteCategory(id);
-		} catch (Exception e) {
+		}
+		catch(Exception e)
+		{
 			return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
-
 
 }

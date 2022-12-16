@@ -11,7 +11,5 @@ import java.util.List;
 public class CategoryDto
 {
     private String name;
-    private Long categoryId;
     private String description;
-    private Integer quantity;
 }
