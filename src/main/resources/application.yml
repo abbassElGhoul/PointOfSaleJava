@@ -3,3 +3,7 @@ spring:
     url: jdbc:postgresql://localhost:5432/point_of_sale
     username: postgres
     password: 7363
+
+app:
+  jwt:
+    secret: abcdefghijklmnOPQRSTUVWXYZ
