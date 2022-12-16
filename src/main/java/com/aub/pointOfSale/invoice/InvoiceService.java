@@ -8,4 +8,6 @@ public interface InvoiceService
 {
 
 	ResponseEntity<?>  generateReceipt(GenerateReceiptDTO generateReceiptDTO);
+
+	ResponseEntity<?>  returnInvoice(GenerateReceiptDTO generateReceiptDTO);
 }
